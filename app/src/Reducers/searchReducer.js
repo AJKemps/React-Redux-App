@@ -26,6 +26,7 @@ export const searchReducer = (state = initialState, action) => {
       console.log("FETCH SUCCESS REACHED:", action.payload);
       return {
         ...state,
+        isFetching: false,
         results: action.payload
           .filter((i, index) => index < 10)
           .map((result) => ({

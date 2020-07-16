@@ -9,8 +9,11 @@ const SearchForm = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.search(searchText);
+    setSearchText(searchText);
+    props.props.getBooks(searchText);
   };
+
+  console.log("SearchForm props:", props);
 
   return (
     <div className="searchForm">

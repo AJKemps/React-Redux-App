@@ -9,10 +9,7 @@ function App(props) {
   return (
     <div className="App">
       <header className="App-header">Book Searcher</header>
-      <SearchForm
-        searchTerm={props.searchTerm}
-        search={props.search}
-      ></SearchForm>
+      <SearchForm searchTerm={props.searchTerm} props={props}></SearchForm>
       <Results results={props}></Results>
     </div>
   );

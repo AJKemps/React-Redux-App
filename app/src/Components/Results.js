@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Result from "./Result";
 
 const Results = (props) => {
   console.log("Results.js props:", props);
 
-  useEffect(() => {
-    props.results.getBooks();
-  }, []);
+  if (props.results.isFetching) {
+    return <h4>Loading . . .</h4>;
+  }
 
   return (
     <div>
