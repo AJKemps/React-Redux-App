@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { connect } from "react-redux";
-import { search } from "./Actions/searchActions";
+import { getBooks } from "./Actions/searchActions";
 import SearchForm from "./Components/SearchForm";
 import Results from "./Components/Results";
 
@@ -13,7 +13,7 @@ function App(props) {
         searchTerm={props.searchTerm}
         search={props.search}
       ></SearchForm>
-      <Results results={props.results}></Results>
+      <Results results={props}></Results>
     </div>
   );
 }
@@ -21,9 +21,12 @@ function App(props) {
 const mapStateToProps = (state) => {
   return {
     searchTerm: state.searchTerm,
+    loading: state.loading,
     editing: state.editing,
+    isFetching: state.isFetching,
+    error: state.error,
     results: state.results,
   };
 };
 
-export default connect(mapStateToProps, { search })(App);
+export default connect(mapStateToProps, { getBooks })(App);

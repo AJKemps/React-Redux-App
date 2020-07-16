@@ -8,12 +8,12 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
-let store = createStore(searchReducer, applyMiddleware(thunk));
-
 const logger = ({ getState }) => (next) => (action) => {
   console.log("Dispatching action:", action);
   next(action);
 };
+
+let store = createStore(searchReducer, applyMiddleware(logger, thunk));
 
 ReactDOM.render(
   <Provider store={store}>
