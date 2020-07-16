@@ -1,11 +1,14 @@
 import React from "react";
 import Result from "./Result";
 
-const Results = () => {
+const Results = (props) => {
+  console.log(props);
   return (
     <div>
       <h3>Results</h3>
-      <Result />
+      {props.results.map((result) => (
+        <Result key={result.id} result={result} />
+      ))}
     </div>
   );
 };

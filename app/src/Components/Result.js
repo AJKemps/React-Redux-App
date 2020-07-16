@@ -1,10 +1,11 @@
 import React from "react";
 
-const Result = () => {
+const Result = (props) => {
+  console.log("result:", props);
   return (
     <div>
-      <h4>Title</h4>
-      <h5>Author</h5>
+      <h4>{props.result.title}</h4>
+      <h5>{props.result.author}</h5>
     </div>
   );
 };
